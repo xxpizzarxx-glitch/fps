@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário Vitória 💜</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontes Google para estilo de fantasia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Nunito:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Cursor Personalizado -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Container de Partículas Global -->
+    <div id="particles-container"></div>
+
+    <!-- ==========================================
+         TELA DE LOADING
+    ========================================== -->
+    <section id="loading-screen" class="screen active">
+        <div class="loading-content">
+            <div class="logo-loading">
+                <h1>Vitória</h1>
+                <div class="subtitle">Uma Aventura Mágica</div>
+            </div>
+            
+            <div class="loading-bar-container">
+                <div class="loading-bar-fill" id="loading-bar"></div>
+            </div>
+            
+            <p class="loading-text" id="loading-text">Preparando uma aventura...</p>
+            
+            <div class="floating-elements">
+                <!-- Elementos decorativos animados via CSS -->
+                <div class="float-item star">✨</div>
+                <div class="float-item heart">💜</div>
+                <div class="float-item sakura">🌸</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         MENU PRINCIPAL
+    ========================================== -->
+    <section id="main-menu" class="screen hidden">
+        <div class="menu-bg-overlay"></div>
+        <div class="menu-content glass-panel">
+            <h1 class="main-title glow-text">🎉 Feliz Aniversário Vitória 💜</h1>
+            <p class="menu-description">
+                Hoje você viverá uma pequena aventura preparada especialmente para você.
+                Uma jornada através de memórias, desafios e muito amor.
+            </p>
+            <button id="btn-start-journey" class="btn-primary btn-large">
+                <span class="btn-icon">✨</span> Começar Jornada
+            </button>
+            
+            <div class="easter-egg-trigger" id="title-easter-egg"></div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TELA DE HISTÓRIA (DIALOGOS)
+    ========================================== -->
+    <section id="story-screen" class="screen hidden">
+        <div class="story-container">
+            <div class="dialogue-box glass-panel">
+                <div class="speaker-name">Narrador</div>
+                <div class="dialogue-text" id="story-text">
+                    Existe um tesouro muito raro...
+                </div>
+                <button class="btn-next" id="btn-next-story">Próximo ➤</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SISTEMA DE MISSÕES (HUD)
+    ========================================== -->
+    <section id="quest-screen" class="screen hidden">
+        <div class="quest-interface">
+            <div class="quest-header glass-panel-small">
+                <h2>📜 Missão Principal</h2>
+                <div class="quest-title-highlight">❤️ O Maior Tesouro ❤️</div>
+            </div>
+            
+            <div class="quest-list glass-panel">
+                <ul id="quest-objectives">
+                    <li class="quest-item completed" data-step="0">
+                        <span class="check-icon">☑</span> Começar a aventura
+                    </li>
+                    <li class="quest-item" data-step="1">
+                        <span class="check-icon">☐</span> Completar o quiz
+                    </li>
+                    <li class="quest-item" data-step="2">
+                        <span class="check-icon">☐</span> Encontrar lembranças
+                    </li>
+                    <li class="quest-item" data-step="3">
+                        <span class="check-icon">☐</span> Abrir o baú
+                    </li>
+                    <li class="quest-item" data-step="4">
+                        <span class="check-icon">☐</span> Assistir à surpresa
+                    </li>
+                    <li class="quest-item" data-step="5">
+                        <span class="check-icon">☐</span> Descobrir o verdadeiro tesouro
+                    </li>
+                </ul>
+            </div>
+
+            <div class="action-area">
+                <button id="btn-start-quiz" class="btn-secondary">Iniciar Quiz 📝</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         QUIZ
+    ========================================== -->
+    <section id="quiz-screen" class="screen hidden">
+        <div class="quiz-container glass-panel">
+            <div class="quiz-header">
+                <div class="quiz-progress-info">
+                    <span id="quiz-question-number">Questão 1/20</span>
+                    <span id="quiz-score">Pontos: 0</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="quiz-progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="quiz-content">
+                <h3 id="quiz-question-text">Pergunta vai aqui...</h3>
+                <div class="options-container" id="quiz-options">
+                    <!-- Opções geradas via JS -->
+                </div>
+            </div>
+
+            <div class="achievements-popup" id="achievement-popup">
+                <div class="achievement-icon">🏆</div>
+                <div class="achievement-text">Conquista Desbloqueada!</div>
+                <div class="achievement-name" id="achievement-name">Primeira Resposta</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         GALERIA DE MEMÓRIAS
+    ========================================== -->
+    <section id="gallery-screen" class="screen hidden">
+        <div class="gallery-header">
+            <h2>📷 Nossas Memórias</h2>
+            <p>Clique nas imagens para ampliar</p>
+        </div>
+        
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- IMAGEM 1: Substitua src pela sua foto -->
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <div class="placeholder-img">Foto 1</div>
+                <img src="assets/images/foto1.jpg" alt="Memória 1" style="display:none;" data-full="assets/images/foto1.jpg">
+                <div class="caption">Nosso primeiro encontro</div>
+            </div>
+            <!-- IMAGEM 2 -->
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <div class="placeholder-img">Foto 2</div>
+                <img src="assets/images/foto2.jpg" alt="Memória 2" style="display:none;" data-full="assets/images/foto2.jpg">
+                <div class="caption">Viagem inesquecível</div>
+            </div>
+            <!-- IMAGEM 3 -->
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <div class="placeholder-img">Foto 3</div>
+                <img src="assets/images/foto3.jpg" alt="Memória 3" style="display:none;" data-full="assets/images/foto3.jpg">
+                <div class="caption">Momento feliz</div>
+            </div>
+            <!-- Adicione mais itens conforme necessário -->
+        </div>
+
+        <button id="btn-to-cards" class="btn-primary">Ver Cartas Escondidas 💌</button>
+    </section>
+
+    <!-- LIGHTBOX PARA GALERIA -->
+    <div id="lightbox" class="lightbox hidden">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- ==========================================
+         CARTAS ESCONDIDAS
+    ========================================== -->
+    <section id="cards-screen" class="screen hidden">
+        <h2>💌 Cartas do Coração</h2>
+        <p>Encontre as 10 cartas escondidas</p>
+        
+        <div class="cards-grid" id="cards-grid">
+            <!-- Cartas geradas via JS ou estáticas -->
+            <div class="card-back" onclick="openCard(0)">?</div>
+            <div class="card-back" onclick="openCard(1)">?</div>
+            <div class="card-back" onclick="openCard(2)">?</div>
+            <div class="card-back" onclick="openCard(3)">?</div>
+            <div class="card-back" onclick="openCard(4)">?</div>
+            <div class="card-back" onclick="openCard(5)">?</div>
+            <div class="card-back" onclick="openCard(6)">?</div>
+            <div class="card-back" onclick="openCard(7)">?</div>
+            <div class="card-back" onclick="openCard(8)">?</div>
+            <div class="card-back" onclick="openCard(9)">?</div>
+        </div>
+
+        <button id="btn-to-reasons" class="btn-primary">100 Motivos 💖</button>
+    </section>
+
+    <!-- MODAL DE CARTA -->
+    <div id="card-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <span class="close-modal" onclick="closeCardModal()">&times;</span>
+            <div class="card-message" id="card-message-text">
+                Mensagem da carta...
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         100 MOTIVOS
+    ========================================== -->
+    <section id="reasons-screen" class="screen hidden">
+        <h2>100 Motivos pelos quais te amo</h2>
+        <p>Clique para revelar um motivo</p>
+        
+        <div class="reasons-container">
+            <div class="reason-display glass-panel" id="reason-display">
+                Clique no coração abaixo...
+            </div>
+            <button class="btn-heart-reveal" id="btn-reveal-reason">❤️</button>
+            <div class="reason-counter">Motivo <span id="reason-count">0</span>/100</div>
+        </div>
+
+        <button id="btn-to-chest" class="btn-primary">Ir ao Baú 🔒</button>
+    </section>
+
+    <!-- ==========================================
+         O BAÚ
+    ========================================== -->
+    <section id="chest-screen" class="screen hidden">
+        <div class="chest-container">
+            <div class="chest-wrapper" id="chest-wrapper">
+                <!-- SVG do Baú Animado -->
+                <svg id="treasure-chest" viewBox="0 0 200 150" width="300" height="225">
+                    <!-- Base do baú -->
+                    <rect x="20" y="80" width="160" height="60" fill="#8B4513" stroke="#DAA520" stroke-width="3" rx="5"/>
+                    <rect x="20" y="80" width="160" height="60" fill="url(#woodGradient)" opacity="0.5"/>
+                    
+                    <!-- Tampa do baú (animada) -->
+                    <g id="chest-lid">
+                        <path d="M20 80 Q100 20 180 80" fill="#A0522D" stroke="#DAA520" stroke-width="3"/>
+                        <path d="M20 80 Q100 20 180 80" fill="url(#woodGradient)" opacity="0.5"/>
+                        <!-- Fechadura -->
+                        <circle cx="100" cy="70" r="8" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+                        <rect x="95" y="70" width="10" height="15" fill="#DAA520"/>
+                    </g>
+                    
+                    <!-- Detalhes de metal -->
+                    <rect x="30" y="90" width="10" height="40" fill="#DAA520" rx="2"/>
+                    <rect x="160" y="90" width="10" height="40" fill="#DAA520" rx="2"/>
+                    <rect x="20" y="110" width="160" height="5" fill="#DAA520"/>
+                    
+                    <defs>
+                        <linearGradient id="woodGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8B4513;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#5C3317;stop-opacity:0.3" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                
+                <div class="chest-glow" id="chest-glow"></div>
+            </div>
+            
+            <p class="chest-instruction">Clique no baú para abrir!</p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CONTAGEM E VÍDEO
+    ========================================== -->
+    <section id="countdown-screen" class="screen hidden">
+        <div class="countdown-number" id="countdown-number">3</div>
+    </section>
+
+    <section id="video-screen" class="screen hidden">
+        <video id="main-video" playsinline>
+            <source src="video.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+    </section>
+
+    <!-- ==========================================
+         CARTA FINAL
+    ========================================== -->
+    <section id="final-letter-screen" class="screen hidden">
+        <div class="letter-container glass-panel">
+            <div class="letter-content">
+                <h2>Para Vitória ❤️</h2>
+                <p class="letter-text">
+                    Obrigado por existir.<br><br>
+                    Obrigado por fazer parte da minha vida.<br><br>
+                    Espero que este pequeno presente consiga mostrar um pouco do quanto você significa para mim.<br><br>
+                    Feliz aniversário.<br><br>
+                    Eu te amo. ❤️
+                </p>
+                <div class="signature">Com amor, [Seu Nome]</div>
+            </div>
+            <button id="btn-show-credits" class="btn-primary">Ver Créditos 🎬</button>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CRÉDITOS
+    ========================================== -->
+    <section id="credits-screen" class="screen hidden">
+        <div class="credits-container">
+            <h2>Créditos</h2>
+            <div class="credit-item">
+                <span class="credit-label">Criado por:</span>
+                <span class="credit-value" id="creator-name">[Seu Nome Aqui]</span>
+            </div>
+            <div class="credit-item">
+                <span class="credit-label">Especialmente para:</span>
+                <span class="credit-value highlight">Vitória ❤️</span>
+            </div>
+            <div class="credit-item">
+                <span class="credit-label">Tecnologias:</span>
+                <span class="credit-value">HTML5, CSS3, JavaScript</span>
+            </div>
+            <div class="credit-item">
+                <span class="credit-label">Inspiração:</span>
+                <span class="credit-value">Amor & Genshin Impact</span>
+            </div>
+            
+            <button id="btn-finish" class="btn-primary">Finalizar Jornada 🏁</button>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PÓS-CRÉDITOS
+    ========================================== -->
+    <section id="post-credits-screen" class="screen hidden">
+        <div class="mission-complete">
+            <h1 class="glow-text-big">MISSÃO CONCLUÍDA</h1>
+            <p class="final-message">
+                "O verdadeiro tesouro nunca esteve em Teyvat.<br>
+                Sempre foi você."
+            </p>
+            <div class="final-heart">❤️</div>
+        </div>
+    </section>
+
+    <!-- Áudio de fundo (opcional) -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Importação do JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
