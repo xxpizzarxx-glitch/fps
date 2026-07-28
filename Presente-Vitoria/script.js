@@ -727,7 +727,7 @@ function openLightbox(element) {
     }
 }
 
-function closeLightbox() {
+window.closeLightbox = function() {
     const lightbox = document.getElementById('lightbox');
     lightbox.classList.remove('active');
 }
@@ -743,7 +743,7 @@ document.addEventListener('keydown', (e) => {
 // ============================================
 // CARTAS ESCONDIDAS
 // ============================================
-function openCard(index) {
+window.openCard = function(index) {
     if (index < 0 || index >= cardMessages.length) return;
     
     const modal = document.getElementById('card-modal');
@@ -766,7 +766,7 @@ function openCard(index) {
     }
 }
 
-function closeCardModal() {
+window.closeCardModal = function() {
     const modal = document.getElementById('card-modal');
     modal.classList.remove('active');
 }

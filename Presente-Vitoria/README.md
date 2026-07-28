@@ -1,6 +1,6 @@
-# 🎉 Presente de Aniversário para Vitória 💜
+# 🎉 Presente de Aniversário - Vitória 💜
 
-Um site interativo em formato de mini jogo de aventura, inspirado na atmosfera de Genshin Impact.
+Um mini jogo de aventura interativo criado como presente de aniversário, inspirado na atmosfera de Genshin Impact.
 
 ## 📁 Estrutura do Projeto
 
@@ -8,155 +8,87 @@ Um site interativo em formato de mini jogo de aventura, inspirado na atmosfera d
 Presente-Vitoria/
 ├── index.html          # Página principal
 ├── style.css           # Estilos e animações
-├── script.js           # Lógica e interatividade
-├── music.mp3           # Música de fundo (adicione seu arquivo)
-├── video.mp4           # Vídeo surpresa (adicione seu arquivo)
-├── README.md           # Este arquivo
-└── assets/
-    ├── images/         # Fotos da galeria
-    │   ├── foto1.jpg   # Adicione suas fotos aqui
-    │   ├── foto2.jpg
-    │   └── foto3.jpg
-    ├── icons/          # Ícones personalizados
-    └── backgrounds/    # Imagens de fundo
+├── script.js           # Lógica do jogo
+├── music.mp3           # Coloque sua música aqui
+├── video.mp4           # Coloque seu vídeo aqui
+├── foto1.jpg           # Adicione suas fotos aqui (opcional)
+├── foto2.jpg           # Adicione suas fotos aqui (opcional)
+└── foto3.jpg           # Adicione suas fotos aqui (opcional)
 ```
 
 ## 🚀 Como Configurar
 
-### 1. Adicionar Música de Fundo
-- Coloque um arquivo de música no formato MP3 na pasta raiz
-- Nomeie o arquivo como `music.mp3`
-- **Sugestão:** Uma música instrumental suave ou uma música que tenha significado para vocês
+### 1. Adicionar Música (Opcional)
+Coloque um arquivo MP3 na **mesma pasta** do `index.html` com o nome:
+- `music.mp3`
 
-### 2. Adicionar Vídeo Surpresa
-- Coloque um arquivo de vídeo no formato MP4 na pasta raiz
-- Nomeie o arquivo como `video.mp4`
-- **Sugestão:** Um vídeo com mensagens, fotos do casal, ou uma declaração especial
+### 2. Adicionar Vídeo (Obrigatório para experiência completa)
+Coloque um arquivo MP4 na **mesma pasta** do `index.html` com o nome:
+- `video.mp4`
 
-### 3. Adicionar Fotos na Galeria
-- Coloque suas fotos na pasta `assets/images/`
-- Nomeie as fotos como `foto1.jpg`, `foto2.jpg`, `foto3.jpg`, etc.
-- Ou edite o `index.html` para usar os nomes dos seus arquivos
+### 3. Adicionar Fotos (Opcional)
+Coloque suas fotos na **mesma pasta** do `index.html` com os nomes:
+- `foto1.jpg`
+- `foto2.jpg`
+- `foto3.jpg`
 
-### 4. Personalizar o Quiz
-Abra o arquivo `script.js` e procure pela seção:
-```javascript
-// Perguntas personalizadas sobre o relacionamento
-// EDITAR AQUI: Substitua estas perguntas por perguntas sobre vocês dois
-```
+Se não adicionar fotos, a galeria mostrará placeholders.
 
-Edite as perguntas e respostas para refletir sua história:
-- `question`: A pergunta
-- `options`: As 4 opções de resposta
-- `correct`: O índice da resposta correta (0, 1, 2 ou 3)
+### 4. Personalizar (Opcional)
 
-### 5. Personalizar as Cartas
-No `script.js`, procure por `cardMessages` e edite as 10 mensagens românticas.
+#### Editar perguntas do quiz sobre seu relacionamento:
+Abra `script.js` e procure por "EDITAR AQUI" nas linhas ~90-150.
 
-### 6. Personalizar os 100 Motivos
-No `script.js`, procure por `reasonsList` e edite a lista completa de motivos.
+#### Editar as 10 cartas românticas:
+No `script.js`, procure pela variável `cardMessages`.
 
-### 7. Adicionar Seu Nome
-No `index.html`, procure por `[Seu Nome]` e substitua pelo seu nome real.
+#### Editar os 100 motivos:
+No `script.js`, procure pela variável `reasonsList`.
 
-## 🎮 Como Jogar
+#### Colocar seu nome nos créditos:
+No `index.html`, procure por `[Seu Nome]` ou `[Seu Nome Aqui]`.
 
-1. **Abra o arquivo `index.html`** em qualquer navegador moderno (Chrome, Firefox, Edge)
-2. **Aguarde o loading** cinematográfico
-3. **Clique em "Começar Jornada"** no menu principal
-4. **Siga a história** e complete as missões
-5. **Responda o quiz** sobre Genshin Impact e sobre seu relacionamento
-6. **Explore a galeria** de memórias
-7. **Descubra as cartas** escondidas
-8. **Revele os 100 motivos** pelos quais você é amada
-9. **Abra o baú** do tesouro
-10. **Assista ao vídeo** surpresa
-11. **Leia a carta final**
-12. **Veja os créditos** e a mensagem pós-créditos
+## ▶️ Como Usar
 
-## ✨ Easter Eggs
+1. Abra o arquivo `index.html` em qualquer navegador moderno (Chrome, Firefox, Edge, Safari)
+2. Aproveite a experiência!
 
-- **Clique 5 vezes no título** do menu principal
-- **Konami Code**: ↑ ↑ ↓ ↓ ← → ← → B A
-- **Clique nas estrelas** das partículas
-- **Explore todos os cantos** do site
+## 🎮 Recursos Incluídos
 
-## 🎨 Recursos Incluídos
-
-- ✅ Tela de loading cinematográfica com barra de progresso
-- ✅ Partículas animadas (estrelas, corações, pétalas de sakura)
-- ✅ Cursor personalizado com efeito glow
-- ✅ Sistema de missões estilo RPG
+- ✅ Tela de loading cinematográfica com partículas
+- ✅ Menu principal animado
+- ✅ Sistema de história com diálogos
+- ✅ HUD de missões estilo RPG
 - ✅ Quiz com 20 perguntas (Genshin + personalizadas)
-- ✅ Sistema de conquistas com popups animados
-- ✅ Galeria de fotos com lightbox e zoom
-- ✅ 10 cartas escondidas com mensagens românticas
-- ✅ 100 motivos reveláveis com animações
-- ✅ Baú do tesouro animado com explosão de partículas
-- ✅ Contagem regressiva dramática
-- ✅ Reprodução automática de vídeo
+- ✅ Sistema de conquistas
+- ✅ Galeria de fotos com lightbox
+- ✅ 10 cartas escondidas
+- ✅ 100 motivos reveláveis
+- ✅ Baú do tesouro animado
+- ✅ Contagem regressiva
+- ✅ Reprodução de vídeo em tela cheia
 - ✅ Carta final emocionante
 - ✅ Créditos estilo jogo
-- ✅ Tela pós-créditos com mensagem especial
-- ✅ Glassmorphism e efeitos de blur
-- ✅ Animações suaves e transições cinematográficas
-- ✅ Totalmente responsivo (desktop, tablet, celular)
-- ✅ Easter eggs secretos
+- ✅ Pós-créditos com mensagem secreta
+- ✅ Easter Eggs (Konami Code, cliques no título)
 
-## 🎯 Dicas de Personalização
+## 🎨 Efeitos Visuais
 
-### Cores do Tema
-No `style.css`, edite as variáveis CSS em `:root`:
-```css
---primary-color: #9b59b6;     /* Cor principal (roxo) */
---accent-gold: #f1c40f;       /* Dourado para destaques */
---accent-pink: #ff69b4;       /* Rosa para elementos românticos */
-```
+- Glassmorphism com blur
+- Partículas (estrelas, corações 💜, pétalas de sakura 🌸)
+- Cursor personalizado
+- Confetes animados
+- Glow effects em roxo e dourado
+- Transições cinematográficas
+- Totalmente responsivo
 
-### Fontes
-O projeto usa fontes do Google Fonts:
-- **Cinzel**: Para títulos (estilo fantasia)
-- **Nunito**: Para texto corporal (legibilidade)
+## 🐛 Problemas Conhecidos
 
-### Velocidades de Animação
-Ajuste as durações nas classes CSS para acelerar ou desacelerar animações.
+- Se o menu não funcionar, verifique se abriu o arquivo via HTTP server ou diretamente no navegador
+- Algumas funcionalidades podem requerer interação prévia para tocar áudio (política dos navegadores)
 
-## 🔧 Solução de Problemas
+## 📝 Notas
 
-### O vídeo não toca automaticamente
-- Navegadores bloqueiam autoplay de vídeo com som
-- O vídeo tocará quando o usuário interagir com a página
-- Alternativamente, adicione controles ao vídeo
-
-### A música não toca
-- Autoplay de áudio é bloqueado pela maioria dos navegadores
-- A música começará após a primeira interação do usuário
-- Verifique se o arquivo `music.mp3` existe e está no formato correto
-
-### As imagens não aparecem
-- Verifique se os arquivos estão na pasta `assets/images/`
-- Confira se os nomes dos arquivos correspondem ao código HTML
-- Use formatos suportados: JPG, PNG, WebP
-
-### O site não abre
-- Abra diretamente o arquivo `index.html` no navegador
-- Ou use um servidor local (Live Server no VS Code, Python http.server, etc.)
-
-## 📱 Compatibilidade
-
-- ✅ Chrome (recomendado)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Edge
-- ✅ Opera
-- ✅ Navegadores móveis (iOS Safari, Chrome Mobile)
-
-## 💝 Mensagem Final
-
-Este projeto foi feito com muito amor para tornar o aniversário da Vitória inesquecível!
-
-**"O verdadeiro tesouro nunca esteve em Teyvat. Sempre foi você."**
-
----
-
-Criado com ❤️ usando HTML, CSS e JavaScript puro.
+- O projeto funciona offline após configurado
+- Compatível com dispositivos móveis
+- Não requer instalação de nada

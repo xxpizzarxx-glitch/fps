@@ -154,28 +154,28 @@
         <div class="gallery-header">
             <h2>📷 Nossas Memórias</h2>
             <p>Clique nas imagens para ampliar</p>
+            <p class="gallery-note">Adicione suas fotos na mesma pasta com os nomes: foto1.jpg, foto2.jpg, foto3.jpg</p>
         </div>
         
         <div class="gallery-grid" id="gallery-grid">
-            <!-- IMAGEM 1: Substitua src pela sua foto -->
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <div class="placeholder-img">Foto 1</div>
-                <img src="assets/images/foto1.jpg" alt="Memória 1" style="display:none;" data-full="assets/images/foto1.jpg">
+            <!-- IMAGEM 1: Coloque sua foto como foto1.jpg na mesma pasta do index.html -->
+            <div class="gallery-item" onclick="window.openLightbox(this)">
+                <img src="foto1.jpg" alt="Memória 1" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';" style="display:none;" data-full="foto1.jpg">
+                <div class="placeholder-img">Foto 1<br><small>Adicione foto1.jpg</small></div>
                 <div class="caption">Nosso primeiro encontro</div>
             </div>
             <!-- IMAGEM 2 -->
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <div class="placeholder-img">Foto 2</div>
-                <img src="assets/images/foto2.jpg" alt="Memória 2" style="display:none;" data-full="assets/images/foto2.jpg">
+            <div class="gallery-item" onclick="window.openLightbox(this)">
+                <img src="foto2.jpg" alt="Memória 2" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';" style="display:none;" data-full="foto2.jpg">
+                <div class="placeholder-img">Foto 2<br><small>Adicione foto2.jpg</small></div>
                 <div class="caption">Viagem inesquecível</div>
             </div>
             <!-- IMAGEM 3 -->
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <div class="placeholder-img">Foto 3</div>
-                <img src="assets/images/foto3.jpg" alt="Memória 3" style="display:none;" data-full="assets/images/foto3.jpg">
+            <div class="gallery-item" onclick="window.openLightbox(this)">
+                <img src="foto3.jpg" alt="Memória 3" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';" style="display:none;" data-full="foto3.jpg">
+                <div class="placeholder-img">Foto 3<br><small>Adicione foto3.jpg</small></div>
                 <div class="caption">Momento feliz</div>
             </div>
-            <!-- Adicione mais itens conforme necessário -->
         </div>
 
         <button id="btn-to-cards" class="btn-primary">Ver Cartas Escondidas 💌</button>
@@ -183,7 +183,7 @@
 
     <!-- LIGHTBOX PARA GALERIA -->
     <div id="lightbox" class="lightbox hidden">
-        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <span class="close-lightbox" onclick="window.closeLightbox()">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="">
         <div id="lightbox-caption"></div>
     </div>
@@ -197,16 +197,16 @@
         
         <div class="cards-grid" id="cards-grid">
             <!-- Cartas geradas via JS ou estáticas -->
-            <div class="card-back" onclick="openCard(0)">?</div>
-            <div class="card-back" onclick="openCard(1)">?</div>
-            <div class="card-back" onclick="openCard(2)">?</div>
-            <div class="card-back" onclick="openCard(3)">?</div>
-            <div class="card-back" onclick="openCard(4)">?</div>
-            <div class="card-back" onclick="openCard(5)">?</div>
-            <div class="card-back" onclick="openCard(6)">?</div>
-            <div class="card-back" onclick="openCard(7)">?</div>
-            <div class="card-back" onclick="openCard(8)">?</div>
-            <div class="card-back" onclick="openCard(9)">?</div>
+            <div class="card-back" onclick="window.openCard(0)">?</div>
+            <div class="card-back" onclick="window.openCard(1)">?</div>
+            <div class="card-back" onclick="window.openCard(2)">?</div>
+            <div class="card-back" onclick="window.openCard(3)">?</div>
+            <div class="card-back" onclick="window.openCard(4)">?</div>
+            <div class="card-back" onclick="window.openCard(5)">?</div>
+            <div class="card-back" onclick="window.openCard(6)">?</div>
+            <div class="card-back" onclick="window.openCard(7)">?</div>
+            <div class="card-back" onclick="window.openCard(8)">?</div>
+            <div class="card-back" onclick="window.openCard(9)">?</div>
         </div>
 
         <button id="btn-to-reasons" class="btn-primary">100 Motivos 💖</button>
@@ -215,7 +215,7 @@
     <!-- MODAL DE CARTA -->
     <div id="card-modal" class="modal hidden">
         <div class="modal-content glass-panel">
-            <span class="close-modal" onclick="closeCardModal()">&times;</span>
+            <span class="close-modal" onclick="window.closeCardModal()">&times;</span>
             <div class="card-message" id="card-message-text">
                 Mensagem da carta...
             </div>
